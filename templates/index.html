@@ -16,6 +16,20 @@
             <div class="d-grid">
                 <input type="submit" value="Submit" class="btn btn-primary">
             </div>
+            {% if image_data %}
+                <h2 class="mt-4">Generated Image</h2>
+                <img
+                    src="data:image/png;base64,{{ image_data }}"
+                    class="img-fluid mt-3"
+                    alt="Generated image"
+                >
+            {% endif %}
+
+            {% if error %}
+                <div class="alert alert-danger mt-4">
+                    {{ error }}
+                </div>
+            {% endif %}
         </form>
         
         {% if result %}
