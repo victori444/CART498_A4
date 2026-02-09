@@ -25,17 +25,17 @@
                 >
             {% endif %}
 
+            {% if text_interpretation %}
+                <h3 class="mt-4">Response:</h3>
+                <div class="alert alert-secondary">{{ text_interpretation }}</div>
+            {% endif %}
+
             {% if error %}
                 <div class="alert alert-danger mt-4">
                     {{ error }}
                 </div>
             {% endif %}
         </form>
-        
-        {% if result %}
-            <h3 class="mt-4">Response:</h3>
-            <div class="alert alert-secondary">{{ result }}</div>
-        {% endif %}
     </div>
 </body>
 </html>
