@@ -55,15 +55,17 @@ def index():
                 model="gpt-image-1-mini",
                 prompt=f"A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
                 size="1024x1024",
-                n=1
+                output_format="jpeg",
+                n=1,
+                output_compression=50
             )
 
             image_bytes = base64.b64decode(img.data[0].b64_json)
-            output_path = os.path.join("static", "output.png")
+            output_path = os.path.join("static", "output.jpeg")
             with open(output_path, "wb") as f:
                 f.write(image_bytes)
 
-            image_data="static/output.png"
+            image_data="static/output.jpeg"
 
         except Exception as e:
             error = str(e)
