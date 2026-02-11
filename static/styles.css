@@ -1,0 +1,105 @@
+body {
+    color: #ded0f0;
+    font-family: "Inter", "Georgia", serif;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.prompt-section {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.result-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.prompt-card,
+.result-card {
+    background: rgba(175, 167, 187, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 50px;
+    box-shadow:
+        0 0 10px rgba(125, 97, 138, 0.4),
+        0 0 20px rgba(125, 97, 138, 0.3),
+        0 0 40px rgba(125, 97, 138, 0.2);
+    padding: 2.5rem;
+}
+
+.result-card {
+    flex: 1;
+    min-width: 0;
+}
+
+.result-card img {
+    max-height: 500px;
+}
+
+.results-section {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+@media (max-width: 768px) {
+    .result-container {
+        flex-direction: column;
+    }
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e6e8ff;
+    border: 1px solid rgba(125, 97, 138, 0.15);
+    border-radius: 22px;
+    padding: 1.4rem;
+    resize: none;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(180, 160, 255, 0.4);
+    box-shadow: 0 0 0 0.2rem rgba(125, 97, 138, 0.15);
+    color: white;
+}
+
+.btn-primary {
+    background: rgba(238, 229, 255, 0.6);
+    box-shadow: 0 0 20px rgba(125, 97, 138, 0.4);
+    border: 1px solid rgba(125, 97, 138, 0.4);
+    border-radius: 999px;
+    padding: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary:hover {
+    background: rgba(254, 253, 255, 0.85);
+    box-shadow: 0 0 30px rgba(125, 97, 138, 0.6);
+}
+
+.btn-primary:active {
+    background: rgba(254, 253, 255, 0.85);
+    box-shadow: 0 0 30px rgba(125, 97, 138, 0.6);
+}
+
+img {
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(120, 140, 255, 0.25);
+    margin-top: 1rem;
+    opacity: 0.95;
+}
+
+.text-interpretation {
+    white-space: pre-wrap;
+    flex-grow: 1;
+}

@@ -26,7 +26,6 @@ def index():
                 model="gpt-4.1-nano",
                 temperature=1.2,
                 top_p=1.0,
-                max_output_tokens=100,
                 input=[
                     {
                         "role": "developer",
@@ -35,7 +34,7 @@ def index():
                     {
                         "role": "user",
                         "content": f"""
-                            Analyze the following dream using Jungian analytical psychology.
+                            Analyze the following dream using Jungian analytical psychology. No follow-up questions.
 
                             Dream: {prompt}
 
@@ -51,11 +50,10 @@ def index():
 
             interpretation = response.output[0].content[0].text
 
-            ##### IMAGE #####
+            #### IMAGE #####
             img = client.images.generate(
                 model="gpt-image-1",
-                # prompt="A surreal, symbolic illustration inspired by a Jungian dream interpretation. The image should feel dreamlike and psychological rather than realistic. Use archetypal symbolism, soft lighting, and abstract forms. Emphasize unconscious themes, emotional tension, and transformation. Dream content: {prompt}",
-                prompt=interpretation,
+                prompt="A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
                 size="1024x1024"
             )
 
