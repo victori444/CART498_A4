@@ -57,14 +57,10 @@ def index():
                 prompt=f"A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
                 size="1024x1024",
                 output_format="webp",
-                output_compression=60
+                output_compression=50
             )
 
-            image_base64 = img.data[0].b64_json
-
-            image_data = base64.b64encode(
-                base64.b64decode(image_base64)
-            ).decode("utf-8")
+            image_data = img.data[0].b64_json
 
         except Exception as e:
             error = str(e)
