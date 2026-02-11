@@ -81,5 +81,12 @@
     </script>
 {% endif %}
 
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+
 </body>
 </html>
