@@ -14,7 +14,6 @@ def index():
     image_data = None
     interpretation = None
     error = None
-    print("API KEY:", os.getenv("OPENAI_API_KEY"))
 
     if request.method == "POST":
         prompt = request.form["prompt"]
@@ -53,14 +52,18 @@ def index():
 
             #### IMAGE #####
             img = client.images.generate(
-                model="gpt-image-1",
+                model="gpt-image-1-mini",
                 prompt=f"A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
                 size="1024x1024",
-                output_format="webp",
-                output_compression=50
+                n=1
             )
 
-            image_data = img.data[0].b64_json
+            image_bytes = base64.b64decode(img.data[0].b64_json)
+            output_path = os.path.join("static", "output.png")
+            with open(output_path, "wb") as f:
+                f.write(image_bytes)
+
+            image_data="static/output.png"
 
         except Exception as e:
             error = str(e)
@@ -73,4 +76,4 @@ def index():
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
