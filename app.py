@@ -14,6 +14,7 @@ def index():
     image_data = None
     interpretation = None
     error = None
+    print("API KEY:", os.getenv("OPENAI_API_KEY"))
 
     if request.method == "POST":
         prompt = request.form["prompt"]
@@ -53,7 +54,7 @@ def index():
             #### IMAGE #####
             img = client.images.generate(
                 model="gpt-image-1",
-                prompt="A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
+                prompt=f"A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
                 size="1024x1024"
             )
 
