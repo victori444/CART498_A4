@@ -55,7 +55,9 @@ def index():
             img = client.images.generate(
                 model="gpt-image-1",
                 prompt=f"A surreal, symbolic illustration of the following dream interpretation: {interpretation}. The image should feel dreamlike and psychological rather than realistic.",
-                size="512x512"
+                size="1024x1024",
+                output_format="webp",
+                output_compression=60
             )
 
             image_base64 = img.data[0].b64_json
